@@ -200,6 +200,7 @@ CONFIG = ml_collections.ConfigDict({
                     'shared_dropout': True
                 }
             },
+            'query_bias': True,
             'use_msa': True,
             'use_extra_msa': True,
             'extra_msa_channel': 64,

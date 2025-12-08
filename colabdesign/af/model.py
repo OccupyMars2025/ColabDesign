@@ -47,6 +47,7 @@ class mk_af_model(design_model, _af_inputs, _af_loss, _af_prep, _af_design, _af_
       # sequence options
       "optimize_seq":True, "alphabet_size":20, "shuffle_first":True, "copies":1,
       "num_msa":512, "num_extra_msa":1024, "use_mlm": False, "use_cluster_profile": False,
+      "query_bias":True,
 
       # model options
       "model_type":model_type,
@@ -128,6 +129,8 @@ class mk_af_model(design_model, _af_inputs, _af_loss, _af_prep, _af_design, _af_
     self._cfg.model.global_config.use_dgram_pred = self._args["use_dgram_pred"]
     self._cfg.model.global_config.bfloat16  = self._args["use_bfloat16"]
     self._cfg.model.global_config.bfloat16_output  = self._args["use_bfloat16"]
+
+    self._cfg.model.embeddings_and_evoformer.query_bias = self._args["query_bias"]
 
     # load model_params
     if model_names is None:
